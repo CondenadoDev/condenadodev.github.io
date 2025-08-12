@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Profesional - Camilo Osorio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: #1a1a1a;
+            color: #f5f5f5;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .page {
+            width: 100vw;
+            min-height: 100vh;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 4rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* --- Fuentes --- */
+        .body-text {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+
+        /* --- Portada --- */
+        .cover-page {
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .cover-content {
+            text-align: center;
+        }
+
+        .cover-title {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: 4px;
+            color: #888888;
+            text-transform: uppercase;
+        }
+
+        /* --- Índice --- */
+        .index-page {
+            justify-content: center;
+        }
+
+        .index-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+
+        .index-list {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .index-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #333333;
+            color: #cccccc;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        .index-item:hover {
+            background: rgba(255,255,255,0.03);
+        }
+
+        .index-item:last-child {
+            border-bottom: none;
+        }
+
+        .index-number {
+            font-size: 1.2rem;
+            color: #666666;
+            min-width: 50px;
+        }
+
+        .index-project-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-left: 2rem;
+            flex-grow: 1;
+        }
+
+        .index-project-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted #444;
+            margin: 0 1rem;
+            transform: translateY(-4px);
+        }
+
+        .index-project-page {
+            font-size: 1.2rem;
+            color: #666666;
+        }
+
+        /* --- Perfil --- */
+        .profile-page {
+            background: #111;
+        }
+
+        .profile-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .profile-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+
+        .profile-text {
+            font-size: 1.2rem;
+            color: #cccccc;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* --- Página de proyecto --- */
+        .project-page {
+            background: #0f0f0f;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-top: 5rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 2rem;
+            width: 100%;
+        }
+
+        .project-number {
+            font-size: 1rem;
+            color: #666666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            color: #888888;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .project-content {
+            display: grid;
+            gap: 4rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 0.75rem;
+        }
+
+        .info-content {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .project-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .spec-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333333;
+            padding: 1.2rem;
+            border-left: 3px solid #666666;
+        }
+
+        .spec-label {
+            font-size: 0.9rem;
+            color: #888888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .spec-value.team-project { /* Estilo especial para proyectos en equipo */
+            color: #f9a825; /* Un color dorado para destacar */
+            font-weight: bold;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #222222;
+            color: #cccccc;
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .features-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #666666;
+        }
+
+        .project-visual {
+            background: #000;
+            border: 1px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            overflow: hidden;
+        }
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .visual-gallery .project-visual img {
+            object-fit: contain;
+        }
+
+        /* Layouts */
+        .project-layout-1 .project-content { grid-template-columns: 1.2fr 1fr; }
+        .project-layout-2 .project-content { grid-template-columns: 1fr; }
+        .project-layout-2 .project-info-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
+        .project-layout-3 .project-content { grid-template-columns: 1fr 1.2fr; }
+
+        /* --- Habilidades --- */
+        .skills-page {
+            background: #0a0a0a;
+            justify-content: center;
+        }
+        .skills-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .skill-category {
+            border-left: 2px solid #666;
+            padding-left: 2rem;
+        }
+        .skill-category-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #cccccc;
+        }
+
+        /* --- Página Final --- */
+        .final-page {
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        .final-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        .final-text {
+            font-size: 1.1rem;
+            color: #888888;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+        .contact-info {
+            color: #cccccc;
+            font-size: 1.2rem;
+            line-height: 2.2;
+        }
+        .contact-info a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #ffffff;
+        }
+
+        /* --- Responsive & Print --- */
+        @media print {
+            body { -webkit-print-color-adjust: exact; color-adjust: exact; }
+            .page { page-break-after: always; }
+            .cover-page, .project-page, .skills-page, .final-page { background: #1a1a1a !important; }
+        }
+        @media screen and (max-width: 900px) {
+            .page { padding: 2rem; }
+            .project-content, .project-info-columns, .skills-container, .project-layout-1 .project-content, .project-layout-3 .project-content {
+                grid-template-columns: 1fr !important;
+            }
+            .cover-title { font-size: 2.5rem; }
+            .project-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PÁGINA 1: PORTADA -->
+<div class="page cover-page">
+    <div class="cover-content">
+        <h1 class="cover-title">Camilo Osorio</h1>
+        <p class="cover-subtitle body-text">Game Developer Portfolio</p>
+    </div>
+</div>
+
+<!-- PÁGINA 2: ÍNDICE -->
+<div class="page index-page">
+    <h2 class="index-title">Índice de Proyectos</h2>
+    <div class="index-list">
+        <a href="#project-lacum" class="index-item"><span class="index-number">01</span><span class="index-project-title">Lacum</span><span class="index-project-dots"></span><span class="index-project-page">04</span></a>
+        <a href="#project-guardianes" class="index-item"><span class="index-number">02</span><span class="index-project-title">Guardianes del Bosque</span><span class="index-project-dots"></span><span class="index-project-page">05</span></a>
+        <a href="#project-contabilidad" class="index-item"><span class="index-number">03</span><span class="index-project-title">Plataforma de Gestión Contable</span><span class="index-project-dots"></span><span class="index-project-page">06</span></a>
+        <a href="#project-ratquest" class="index-item"><span class="index-number">04</span><span class="index-project-title">RatQuest</span><span class="index-project-dots"></span><span class="index-project-page">07</span></a>
+        <a href="#project-warlocks" class="index-item"><span class="index-number">05</span><span class="index-project-title">Warlocks Manor</span><span class="index-project-dots"></span><span class="index-project-page">08</span></a>
+        <a href="#project-chaos" class="index-item"><span class="index-number">06</span><span class="index-project-title">Chaos Fortress</span><span class="index-project-dots"></span><span class="index-project-page">09</span></a>
+    </div>
+</div>
+
+<!-- PÁGINA 3: PERFIL -->
+<div class="page profile-page" id="profile">
+    <div class="profile-content">
+        <h2 class="profile-title">Perfil Profesional</h2>
+        <p class="profile-text body-text">
+            Diseñador y desarrollador de videojuegos con una profunda pasión por la creación de mundos y mecánicas de juego inmersivas. Especializado en el uso de Unity y Unreal Engine, transformo conceptos creativos en experiencias interactivas memorables, abarcando desde el arte conceptual y modelado 3D hasta la programación de la lógica de juego. Busco constantemente colaborar en proyectos que desafíen los límites de la narrativa y la jugabilidad.
+        </p>
+    </div>
+</div>
+
+<!-- PÁGINA 4: PROYECTO 1 - LACUM -->
+<div class="page project-page project-layout-3" id="project-lacum">
+    <div class="project-header">
+        <div class="project-number">Proyecto 01</div>
+        <h2 class="project-title">Lacum</h2>
+        <p class="project-subtitle body-text">Juego procedural 2D de escape y supervivencia</p>
+    </div>
+    <div class="project-content">
+        <div class="project-info">
+            <div class="info-section">
+                <h3 class="info-title">El Desafío</h3>
+                <p class="info-content body-text">El objetivo de Lacum fue desarrollar un juego completo como proyecto en solitario, demostrando la capacidad de gestionar todas las áreas del desarrollo. El reto consistía en crear una experiencia de escape tensa y rejugable, donde el jugador debe esquivar enemigos en una mazmorra generada proceduralmente, sin mecánicas de combate.</p>
+            </div>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo</div>
+                    <div class="spec-value">Proyecto en Solitario</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Motor</div>
+                    <div class="spec-value">Construct 2</div>
+                </div>
+            </div>
+            <div class="info-section">
+                <br>
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>**Diseñé y programé** un generador de niveles procedural que creaba una mazmorra única en cada partida, garantizando una alta rejugabilidad.</li>
+                    <li>**Creé todo el arte 2D** del juego, incluyendo sprites, animaciones, tilesets y UI, estableciendo una identidad visual cohesiva y única.</li>
+                    <li>**Diseñé el gameplay** en torno al sigilo y la evasión, implementando enemigos con patrones básicos de patrullaje para crear una experiencia de tensión constante sin combate.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="visual-gallery">
+            <div class="project-visual">
+                <img src="http://googleusercontent.com/file_content/3" alt="Pantalla de inicio de Lacum">
+            </div>
+            <div class="project-visual">
+                <img src="http://googleusercontent.com/file_content/2" alt="Gameplay de Lacum en una mazmorra">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 5: PROYECTO 2 - GUARDIANES DEL BOSQUE -->
+<div class="page project-page project-layout-2" id="project-guardianes">
+    <div class="project-header">
+        <div class="project-number">Proyecto 02</div>
+        <h2 class="project-title">Guardianes del Bosque</h2>
+        <p class="project-subtitle body-text">Juego educativo sobre la prevención de incendios forestales</p>
+    </div>
+    <div class="project-content">
+        <div class="project-visual">
+            <img src="http://googleusercontent.com/file_content/4" alt="Gameplay de Guardianes del Bosque">
+        </div>
+        <div class="project-info-columns">
+            <div class="info-section">
+                <h3 class="info-title">Concepto</h3>
+                <p class="info-content body-text">Desarrollado como un proyecto académico en equipo, "Guardianes del Bosque" es un juego que busca concientizar sobre la prevención de incendios forestales a través de mecánicas de juego interactivas. El jugador debe explorar el entorno, identificar riesgos y tomar acciones para proteger el bosque.</p>
+            </div>
+            <div class="info-section">
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>Como **programador principal**, desarrollé el core del videojuego, incluyendo el movimiento del personaje, el sistema de inventario y las interacciones para las tareas de prevención.</li>
+                    <li>Fui **responsable de todo el arte 2D**, creando los sprites, entornos y la interfaz de usuario, definiendo la identidad visual completa del proyecto.</li>
+                    <li>**Colaboré activamente** en el diseño de mecánicas que tradujeran los objetivos educativos en un gameplay entretenido y efectivo, cumpliendo con los requisitos del ramo.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project-specs">
+            <div class="spec-item">
+                <div class="spec-label">Tipo</div>
+                <div class="spec-value team-project">Proyecto Académico en Equipo</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Motor</div>
+                <div class="spec-value">Unity</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-label">Mi Rol</div>
+                <div class="spec-value">Programador Principal y Artista 2D</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 6: PROYECTO 3 - PLATAFORMA DE GESTIÓN CONTABLE -->
+<div class="page project-page project-layout-1" id="project-contabilidad">
+    <div class="project-header">
+        <div class="project-number">Proyecto 03</div>
+        <h2 class="project-title">Gestión Contable</h2>
+        <p class="project-subtitle body-text">Plataforma web full-stack para la administración de clientes</p>
+    </div>
+    <div class="project-content">
+        <div class="project-visual">
+            <img src="http://googleusercontent.com/file_content/5" alt="Dashboard de la plataforma de gestión contable">
+        </div>
+        <div class="project-info">
+            <div class="info-section">
+                <h3 class="info-title">El Desafío</h3>
+                <p class="info-content body-text">El reto fue desarrollar desde cero y en solitario una aplicación web completa y escalable para una firma de contadores. La plataforma debía permitir la gestión integral de clientes, incluyendo el seguimiento de pagos, deudas y movimientos, reemplazando sistemas manuales y optimizando el flujo de trabajo de la empresa.</p>
+            </div>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo</div>
+                    <div class="spec-value">Proyecto en Solitario</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Tecnologías</div>
+                    <div class="spec-value">React (Frontend) y Java (Backend)</div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>**Desarrollé la arquitectura full-stack** de la aplicación, construyendo una API RESTful en Java y un frontend dinámico y responsivo con React.</li>
+                    <li>**Diseñé e implementé la base de datos** y la lógica de negocio para soportar de manera segura y eficiente la información de **más de 1000 clientes activos**.</li>
+                    <li>**Entregué un producto final en producción** que es utilizado diariamente por la empresa, demostrando la capacidad de llevar un proyecto complejo desde la concepción hasta el despliegue y mantenimiento.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 7: PROYECTO 4 - RATQUEST -->
+<div class="page project-page project-layout-1" id="project-ratquest">
+    <div class="project-header">
+        <div class="project-number">Proyecto 04</div>
+        <h2 class="project-title">RatQuest</h2>
+        <p class="project-subtitle body-text">Aventura RPG 3D con Generación Procedural Avanzada</p>
+    </div>
+    <div class="project-content">
+        <div class="project-info">
+            <div class="info-section">
+                <h3 class="info-title">El Desafío</h3>
+                <p class="info-content body-text">RatQuest fue un ambicioso proyecto en solitario enfocado en la exploración de sistemas de generación procedural complejos dentro de Unity. El desafío técnico principal fue crear mundos 3D dinámicos y sistemas de UI automáticos, gestionando a la vez todos los demás aspectos del desarrollo, desde el arte hasta la programación del gameplay.</p>
+            </div>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo</div>
+                    <div class="spec-value">Proyecto en Solitario</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Motor</div>
+                    <div class="spec-value">Unity</div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>**Implementé un sistema de generación procedural de cuevas en 3D**, creando entornos subterráneos únicos y explorables en cada partida.</li>
+                    <li>**Desarrollé un innovador sistema de generación automática de UI**, que construye las interfaces de usuario dinámicamente sin necesidad de posicionamiento manual, optimizando el flujo de desarrollo.</li>
+                    <li>**Me encargué de todo el ciclo de desarrollo**, incluyendo el modelado 3D del personaje, la programación de un sistema de combate simple y la creación de las mazmorras procedurales.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project-visual">
+            <img src="http://googleusercontent.com/file_content/6" alt="Personaje principal de RatQuest en 3D">
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 8: PROYECTO 5 - WARLOCKS MANOR -->
+<div class="page project-page project-layout-1" id="project-warlocks">
+    <div class="project-header">
+        <div class="project-number">Proyecto 05</div>
+        <h2 class="project-title">Warlocks Manor</h2>
+        <p class="project-subtitle body-text">Juego de terror cooperativo con IA avanzada</p>
+    </div>
+    <div class="project-content">
+        <div class="project-visual">
+            <img src="https://placehold.co/800x600/303f9f/FFFFFF?text=Visual+de+Warlocks+Manor" alt="Imagen del proyecto Warlocks Manor">
+        </div>
+        <div class="project-info">
+            <div class="info-section">
+                <h3 class="info-title">El Desafío</h3>
+                <p class="info-content body-text">Como parte de un equipo de desarrollo, el desafío en Warlocks Manor es crear una experiencia de terror genuinamente aterradora. El reto principal se centra en construir una atmósfera opresiva a través del diseño de niveles y en desarrollar una inteligencia artificial enemiga que sea impredecible y amenazante para los jugadores.</p>
+            </div>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo</div>
+                    <div class="spec-value team-project">Proyecto en Equipo</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Motor</div>
+                    <div class="spec-value">Unreal Engine</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Mi Rol Principal</div>
+                    <div class="spec-value">Programador de IA y Diseñador de Niveles</div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>**Programé la IA de los enemigos** utilizando Unreal Engine, enfocándome en comportamientos complejos e impredecibles que reaccionan a las acciones de los jugadores para generar tensión constante.</li>
+                    <li>**Diseñé los niveles clave** del juego, utilizando la arquitectura, la iluminación y el sonido para crear una atmósfera opresiva y guiar la experiencia de terror de forma efectiva.</li>
+                    <li>**Colaboro estrechamente** con artistas y diseñadores de sonido para asegurar que la IA y los niveles se integren de forma cohesiva, maximizando el impacto de los momentos de susto.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 9: PROYECTO 6 - CHAOS FORTRESS -->
+<div class="page project-page project-layout-1" id="project-chaos">
+    <div class="project-header">
+        <div class="project-number">Proyecto 06</div>
+        <h2 class="project-title">Chaos Fortress</h2>
+        <p class="project-subtitle body-text">Juego multijugador de estrategia y liderazgo</p>
+    </div>
+    <div class="project-content">
+        <div class="project-info">
+            <div class="info-section">
+                <h3 class="info-title">El Desafío</h3>
+                <p class="info-content body-text">El reto en este proyecto en desarrollo es coordinar un equipo multidisciplinario para crear un juego multijugador complejo. Mi desafío personal ha sido asumir roles de liderazgo para guiar la visión del proyecto y la dirección artística, además de contribuir directamente al diseño de las mecánicas de juego fundamentales.</p>
+            </div>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <div class="spec-label">Tipo</div>
+                    <div class="spec-value team-project">Proyecto en Equipo (En Desarrollo)</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Mis Roles</div>
+                    <div class="spec-value">Líder de Proyecto (Temporal) y Director de Arte</div>
+                </div>
+            </div>
+            <div class="info-section">
+                <h3 class="info-title">Mi Aporte y Logros</h3>
+                <ul class="features-list body-text">
+                    <li>**Asumí el liderazgo del proyecto** durante una fase clave, organizando tareas, estableciendo hitos y asegurando una comunicación fluida entre los miembros del equipo.</li>
+                    <li>**Dirijo la visión artística** del juego, definiendo el estilo visual, supervisando la creación de assets y garantizando una estética cohesiva en todos los aspectos del proyecto.</li>
+                    <li>**Participo activamente en el diseño del juego**, colaborando en la creación y el balance de las mecánicas de construcción de bases y defensa de torres.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project-visual">
+            <img src="https://placehold.co/800x600/b71c1c/FFFFFF?text=Arte+de+Chaos+Fortress" alt="Imagen del proyecto Chaos Fortress">
+        </div>
+    </div>
+</div>
+
+<!-- PÁGINA 10: HABILIDADES -->
+<div class="page skills-page" id="skills">
+    <h2 class="skills-title">Caja de Herramientas</h2>
+    <div class="skills-container">
+        <div class="skill-category">
+            <h3 class="skill-category-title">Desarrollo y Lógica</h3>
+            <ul class="skill-list body-text">
+                <li>Unity</li>
+                <li>Unreal Engine</li>
+                <li>Construct 2</li>
+                <li>C# / C++</li>
+                <li>Java</li>
+                <li>React</li>
+                <li>Blueprints</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3 class="skill-category-title">Arte Digital y Diseño</h3>
+            <ul class="skill-list body-text">
+                <li>Blender</li>
+                <li>3D-Coat</li>
+                <li>Diseño de UI/UX</li>
+                <li>Diseño de Niveles</li>
+            </ul>
+        </div>
+        <div class="skill-category">
+            <h3 class="skill-category-title">Habilidades Profesionales</h3>
+            <ul class="skill-list body-text">
+                <li>Gestión de Proyectos (Agile/Scrum)</li>
+                <li>Resolución de Problemas</li>
+                <li>Comunicación Técnica y Visual</li>
+                <li>Trabajo en Equipo Colaborativo</li>
+                <li>Control de Versiones (Git)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- PÁGINA 11: PÁGINA FINAL / CONTACTO -->
+<div class="page final-page" id="contact">
+    <div class="final-content">
+        <h2 class="final-title">Hablemos</h2>
+        <p class="final-text body-text">
+            Gracias por explorar mi trabajo. Si tienes un proyecto en mente, una idea innovadora o simplemente quieres conectar, no dudes en contactarme. Siempre estoy abierto a nuevas colaboraciones y desafíos creativos.
+        </p>
+        <div class="contact-info">
+            <a href="mailto:camiloosoriodev@gmail.com">camiloosoriodev@gmail.com</a><br/>
+            <a href="https://condenado.itch.io/" target="_blank">condenado.itch.io</a><br/>
+            <a href="https://www.linkedin.com/in/CamiloOsorioDEV/" target="_blank">linkedin.com/in/CamiloOsorioDEV</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // El script de navegación y PDF no necesita cambios.
+    // ... (Tu script original de JS va aquí sin modificaciones) ...
+</script>
+
+</body>
+</html>
