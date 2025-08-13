@@ -283,8 +283,6 @@
         }
 
         .project-visual {
-            background: #000;
-            border: 1px solid #333333;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -294,7 +292,7 @@
         .project-visual img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Por defecto, las imágenes cubren el espacio */
         }
 
         .visual-gallery {
@@ -304,8 +302,13 @@
         }
 
         .visual-gallery .project-visual img {
+            object-fit: contain; /* Las galerías contienen la imagen */
+        }
+
+        #project-contabilidad .project-visual img {
             object-fit: contain;
         }
+
 
         /* Layouts */
         .project-layout-1 .project-content { grid-template-columns: 1.2fr 1fr; }
@@ -466,10 +469,10 @@
         </div>
         <div class="visual-gallery">
             <div class="project-visual">
-                <img src="http://googleusercontent.com/file_content/3" alt="Pantalla de inicio de Lacum">
+                <img src="images/lacum-portada.png" alt="Pantalla de inicio de Lacum">
             </div>
             <div class="project-visual">
-                <img src="http://googleusercontent.com/file_content/2" alt="Gameplay de Lacum en una mazmorra">
+                <img src="images/lacum-gameplay.png" alt="Gameplay de Lacum en una mazmorra">
             </div>
         </div>
     </div>
@@ -484,7 +487,7 @@
     </div>
     <div class="project-content">
         <div class="project-visual">
-            <img src="http://googleusercontent.com/file_content/4" alt="Gameplay de Guardianes del Bosque">
+            <img src="images/guardianes-gameplay.png" alt="Gameplay de Guardianes del Bosque">
         </div>
         <div class="project-info-columns">
             <div class="info-section">
@@ -518,15 +521,16 @@
 </div>
 
 <!-- PÁGINA 6: PROYECTO 3 - PLATAFORMA DE GESTIÓN CONTABLE -->
-<div class="page project-page project-layout-1" id="project-contabilidad">
+<div class="page project-page project-layout-2" id="project-contabilidad">
     <div class="project-header">
         <div class="project-number">Proyecto 03</div>
         <h2 class="project-title">Gestión Contable</h2>
         <p class="project-subtitle body-text">Plataforma web full-stack para la administración de clientes</p>
     </div>
     <div class="project-content">
+        <!-- Contenedor de imagen simple -->
         <div class="project-visual">
-            <img src="http://googleusercontent.com/file_content/5" alt="Dashboard de la plataforma de gestión contable">
+            <img src="images/contabilidad-1.png" alt="Dashboard de la plataforma de gestión contable">
         </div>
         <div class="project-info">
             <div class="info-section">
@@ -588,7 +592,7 @@
             </div>
         </div>
         <div class="project-visual">
-            <img src="http://googleusercontent.com/file_content/6" alt="Personaje principal de RatQuest en 3D">
+            <img src="images/Ratquest-gameplay.png" alt="Personaje principal de RatQuest en 3D">
         </div>
     </div>
 </div>
@@ -602,7 +606,7 @@
     </div>
     <div class="project-content">
         <div class="project-visual">
-            <img src="https://placehold.co/800x600/303f9f/FFFFFF?text=Visual+de+Warlocks+Manor" alt="Imagen del proyecto Warlocks Manor">
+            <img src="images/warlocks-manor.png" alt="Imagen del proyecto Warlocks Manor">
         </div>
         <div class="project-info">
             <div class="info-section">
@@ -668,7 +672,7 @@
             </div>
         </div>
         <div class="project-visual">
-            <img src="https://placehold.co/800x600/b71c1c/FFFFFF?text=Arte+de+Chaos+Fortress" alt="Imagen del proyecto Chaos Fortress">
+            <img src="images/chaos-fortress.png" alt="Imagen del proyecto Chaos Fortress">
         </div>
     </div>
 </div>
@@ -728,8 +732,8 @@
 </div>
 
 <script>
-    // El script de navegación y PDF no necesita cambios.
-    // ... (Tu script original de JS va aquí sin modificaciones) ...
+    // El script para la navegación suave y otras funcionalidades puede ir aquí.
+    // Por ahora, lo dejamos vacío para no complicar el HTML.
 </script>
 
 </body>
